@@ -1,19 +1,27 @@
 use std::env;
-use std::iter;
 
 use anyhow::Result;
+use emojis::Emoji;
+
+fn to_item(emoji: &Emoji) -> powerpack::Item {
+    let title = format!("{} {}", emoji.as_str(), emoji.name());
+    powerpack::Item::new(title)
+        .subtitle(
+            emoji
+                .shortcode()
+                .map(|s| format!(":{}:", s))
+                .unwrap_or(format!("")),
+        )
+        .arg(emoji.as_str())
+}
+
+pub fn output(emojis: impl Iterator<Item = &'static Emoji>) -> Result<()> {
+    Ok(powerpack::output(emojis.map(to_item))?)
+}
 
 fn main() -> Result<()> {
-    // Alfred passes in a single argument for the user query.
-    let query = env::args().skip(1).next().unwrap_or("".into());
-
-    // Now we create an item to show in the Alfred drop down.
-    let item = powerpack::Item::new("Hello world!")
-        .subtitle(format!("Your query was '{}'", query))
-        .icon(powerpack::Icon::from_file_type("public.script"));
-
-    // Output the items to Alfred!
-    powerpack::output(iter::once(item))?;
-
-    Ok(())
+    match env::args().nth(1) {
+        Some(query) => output(emojis::search(&query.trim())),
+        None => output(emojis::iter()),
+    }
 }

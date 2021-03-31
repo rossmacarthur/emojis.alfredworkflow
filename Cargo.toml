@@ -8,4 +8,5 @@ edition = "2018"
 
 [dependencies]
 anyhow = "1.0"
+emojis = "0.1.1"
 powerpack = "0.1.0"
