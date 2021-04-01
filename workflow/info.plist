@@ -4,6 +4,8 @@
 <dict>
 	<key>name</key>
 	<string>emojis</string>
+	<key>version</key>
+	<string>0.1.0</string>
 	<key>description</key>
 	<string>Fuzzy search emojis and copy them to clipboard.</string>
 	<key>bundleid</key>
