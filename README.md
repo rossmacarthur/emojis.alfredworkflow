@@ -1,6 +1,36 @@
-## emojis.alfred-workflow
+# emojis.alfred-workflow
 
-Fuzzy search emojis and copy them to clipboard.
+[![Build status](https://github.com/rossmacarthur/emojis.alfred-workflow/actions/workflows/build.yaml/badge.svg)](https://github.com/rossmacarthur/emojis.alfred-workflow/actions/workflows/build.yaml)
+
+Alfred workflow to fuzzy search emojis and copy them to clipboard.
+
+## Features
+
+- Fuzzy search based on description and GitHub shortcodes / aliases.
+- Uses the latest Unicode emoji spec (v13.1).
+- Blazingly fast 🤸 (it's built in Rust).
+
+## 📦 Installation
+
+### Pre-packaged
+
+Grab the latest release from
+[the releases page](https://github.com/rossmacarthur/emojis.alfred-workflow/releases).
+
+### Building from source
+
+This workflow is written in Rust, so to install it from source you will first
+need to install Rust and Cargo using [rustup](https://rustup.rs/). Then install
+[powerpack](https://github.com/rossmacarthur/powerpack). Then you can run the
+following to build an `.alfredworkflow` file.
+
+```sh
+git clone https://github.com/rossmacarthur/emojis.alfred-workflow.git
+cd emojis.alfred-workflow
+powerpack package
+```
+
+The release will be available at `target/workflow/emojis.alfredworkflow`.
 
 ## License
 
