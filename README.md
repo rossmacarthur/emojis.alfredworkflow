@@ -17,6 +17,13 @@ Alfred workflow to fuzzy search emojis and copy them to clipboard.
 Grab the latest release from
 [the releases page](https://github.com/rossmacarthur/emojis.alfred-workflow/releases).
 
+Because the release contains an executable binary later versions of macOS will
+mark it as untrusted and Alfred won't be able to execute it. You can run the
+following to explicitly trust the release before installing to Alfred.
+```sh
+xattr -c ~/Downloads/emojis-*-x86_64-apple-darwin.alfredworkflow
+```
+
 ### Building from source
 
 This workflow is written in Rust, so to install it from source you will first
