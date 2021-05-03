@@ -1,6 +1,6 @@
-# emojis.alfred-workflow
+# emojis.alfredworkflow
 
-[![Build status](https://github.com/rossmacarthur/emojis.alfred-workflow/actions/workflows/build.yaml/badge.svg)](https://github.com/rossmacarthur/emojis.alfred-workflow/actions/workflows/build.yaml)
+[![Build status](https://github.com/rossmacarthur/emojis.alfredworkflow/actions/workflows/build.yaml/badge.svg)](https://github.com/rossmacarthur/emojis.alfredworkflow/actions/workflows/build.yaml)
 
 Alfred workflow to fuzzy search emojis and copy them to clipboard.
 
@@ -15,7 +15,7 @@ Alfred workflow to fuzzy search emojis and copy them to clipboard.
 ### Pre-packaged
 
 Grab the latest release from
-[the releases page](https://github.com/rossmacarthur/emojis.alfred-workflow/releases).
+[the releases page](https://github.com/rossmacarthur/emojis.alfredworkflow/releases).
 
 Because the release contains an executable binary later versions of macOS will
 mark it as untrusted and Alfred won't be able to execute it. You can run the
@@ -32,8 +32,8 @@ need to install Rust and Cargo using [rustup](https://rustup.rs/). Then install
 following to build an `.alfredworkflow` file.
 
 ```sh
-git clone https://github.com/rossmacarthur/emojis.alfred-workflow.git
-cd emojis.alfred-workflow
+git clone https://github.com/rossmacarthur/emojis.alfredworkflow.git
+cd emojis.alfredworkflow
 powerpack package
 ```
 
