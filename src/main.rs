@@ -1,10 +1,29 @@
+mod icon;
+
 use std::env;
+use std::path::PathBuf;
 
 use anyhow::Result;
 use emojis::Emoji;
 
+fn get_title_and_icon<'a>(emoji: &'a Emoji) -> (powerpack::String<'a>, powerpack::Icon) {
+    let name: String = emoji
+        .chars()
+        .map(|c| format!("-{:05X}", c as u32))
+        .collect();
+    let path = PathBuf::from(format!("images/emoji{}.png", name));
+    if path.exists() {
+        (emoji.name().into(), powerpack::Icon::Path(path))
+    } else {
+        (
+            format!("{} {}", emoji.as_str(), emoji.name()).into(),
+            powerpack::Icon::from_file_type("public.png"),
+        )
+    }
+}
+
 fn to_item(emoji: &Emoji) -> powerpack::Item {
-    let title = format!("{} {}", emoji.as_str(), emoji.name());
+    let (title, icon) = get_title_and_icon(emoji);
     powerpack::Item::new(title)
         .subtitle(
             emoji
@@ -13,6 +32,7 @@ fn to_item(emoji: &Emoji) -> powerpack::Item {
                 .unwrap_or(format!("")),
         )
         .arg(emoji.as_str())
+        .icon(icon)
 }
 
 pub fn output(emojis: impl Iterator<Item = &'static Emoji>) -> Result<()> {

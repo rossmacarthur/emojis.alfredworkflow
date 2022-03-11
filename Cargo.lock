@@ -31,6 +31,7 @@ dependencies = [
  "anyhow",
  "emojis",
  "powerpack",
+ "ttf-parser",
 ]
 
 [[package]]
@@ -121,6 +122,12 @@ dependencies = [
  "quote",
  "unicode-xid",
 ]
+
+[[package]]
+name = "ttf-parser"
+version = "0.12.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "85e00391c1f3d171490a3f8bd79999b0002ae38d3da0d6a3a306c754b053d71b"
 
 [[package]]
 name = "unicode-xid"
